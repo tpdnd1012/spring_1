@@ -1,0 +1,37 @@
+buildscript {
+    ext{
+        springBootVersion = '2.1.9.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin : 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'spring'
+version '1.4-SNAPSHOT-'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    //  스프링부트 웹 라이브러리 가져오기 =>  관련된 @ 제공 받을수 있다
+    compile('org.springframework.boot:spring-boot-starter-web')
+    // 타임리프 : java <----->  프론트엔드 연결
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    // JPA : 관계형 데이터베이스 사용
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    // H2 : 관계형 데이터베이스 관리 시스템 = mysql워크벤치 역활
+    compile('com.h2database:h2')
+    // 롬복 : 생성자 , get , set , 필드 등
+    compile('org.projectlombok:lombok')
+}

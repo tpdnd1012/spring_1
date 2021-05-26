@@ -85,6 +85,4 @@ public class PostController {
         return "redirect:/postlist"; // URL 요청
     }
 
-
-
 }

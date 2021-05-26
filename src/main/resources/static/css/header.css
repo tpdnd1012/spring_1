@@ -9,7 +9,7 @@
     font-family : 'TmoneyRoundWindExtraBold';
 }
 
-li {
+.header_li {
     font-size : 20px;
     color:black;
     margin-left:30px;

@@ -34,7 +34,7 @@ public class PostService {
                         // 논리 ? 참[T] : 거짓[F]
         // 현재 페이지 설정
         pageable = PageRequest.of( page , 5 , new Sort( Sort.Direction.DESC , "id"));
-                    // PageRequest.of( 현재페이지 , 페이지당 게시글수 , sort )
+                // PageRequest.of( 현재페이지 , 페이지당 게시글수 , sort )
         // 현재 페이지의 게시물 찾기
         return postRepository.findAll( pageable );
                 //        // 모든 entity 반환

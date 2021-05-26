@@ -23,18 +23,18 @@
     <div class="nav navbar-nav">
 
       <ul class="nav navbar-nav navbar-left">
-        <li> 카테고리1 </li>
-        <li> 카테고리2 </li>
-        <li> <a th:href="@{/postlist}">게시판</a></li>
+        <li class="header_li"> 카테고리1 </li>
+        <li class="header_li"> 카테고리2 </li>
+        <li class="header_li"> <a th:href="@{/postlist}">게시판</a></li>
       </ul>
     </div>
     <div class="nav navbar-nav">
       <ul class="nav navbar-nav navbar-right" >
-        <li style="font-size:15px; color:gray;" th:if="${session.loginuser !=null }" th:text="${session.loginuser.memberid}"></li>
-        <li th:if="${session.loginuser ==null }"><a th:href="@{/membersignup}"> 회원가입 </a></li>
-        <li th:if="${session.loginuser ==null }"><a th:href="@{/memberlogin}"> 로그인 </a></li>
-        <li th:if="${session.loginuser !=null }"><a th:href="@{/memberinfo}"> 회원정보 </a></li>
-        <li th:if="${session.loginuser !=null }"><a th:href="@{/memberlogout}">로그아웃</a></li>
+        <li class="header_li" style="font-size:15px; color:gray;" th:if="${session.loginuser !=null }" th:text="${session.loginuser.memberid}"></li>
+        <li class="header_li" th:if="${session.loginuser ==null }"><a th:href="@{/membersignup}"> 회원가입 </a></li>
+        <li class="header_li" th:if="${session.loginuser ==null }"><a th:href="@{/memberlogin}"> 로그인 </a></li>
+        <li class="header_li" th:if="${session.loginuser !=null }"><a th:href="@{/memberinfo}"> 회원정보 </a></li>
+        <li class="header_li" th:if="${session.loginuser !=null }"><a th:href="@{/memberlogout}">로그아웃</a></li>
       </ul>
 
     </div>

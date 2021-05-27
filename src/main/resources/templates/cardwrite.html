@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header :: header_h">
+
+</head>
+<body>
+
+<div th:replace="/header :: header"></div>
+
+카드 등록 페이지
+<form method="post" action="cardwrite" enctype="multipart/form-data">
+    카드명 : <input type="text" name="cardname">
+    카드사 : <input type="text" name="cardcompany">
+    링크 : <input type="text" name="cardlink">
+    사진 : <input type="file" name="cardpicture">
+    <input type="submit" value="등록">
+</form>
+
+</body>
+</html>

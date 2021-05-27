@@ -18,6 +18,16 @@
         </tr>
     </table>
 
+    <table>
+        <tr th:each="cardDto : ${cardDtoList}">
+            <td th:text="${cardDto.id}"> </td>
+            <td th:text="${cardDto.cardname}"> </td>
+            <td th:text="${cardDto.cardcompany}"> </td>
+            <td><img th:src="@{../static/images/} + ${cardDto.cardpicture}"></td>
+            <td th:text="${cardDto.cardcount}"> </td>
+        </tr>
+    </table>
+
 </div>
 
 </body>

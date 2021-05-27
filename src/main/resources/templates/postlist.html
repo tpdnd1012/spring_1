@@ -71,17 +71,20 @@
 
         <!-- 검색 -->
         <div style="text-align:center;">
-            <form action="" method="post">
+
+            <form action="/postsearch" method="post">
                 <select name="keyword">
-                    <option>게시물번호</option>
-                    <option>제목</option>
-                    <option>내용</option>
-                    <option>작성자</option>
+                    <option value="id">게시물번호</option>
+                    <option value="title">제목</option>
+                    <option value="contents">내용</option>
+                    <option value="name">작성자</option>
                 </select>
 
                 <input type="text" name="search">
                 <input type="submit" value="검색" class="btn btn-info">
+
             </form>
+
         </div>
 
     </div>

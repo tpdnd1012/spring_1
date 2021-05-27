@@ -5,7 +5,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import spring.service.CardService;
 import spring.service.MemberService;
+import spring.web.dto.CardDto;
 import spring.web.dto.MemberDto;
 
 import java.util.List;
@@ -17,6 +19,8 @@ public class IndexController {
 
     private final MemberService memberService ;
 
+    private final CardService cardService;
+
     @GetMapping("/") // 요청 URL 만들기  [ ip주소:port번호 ]
     public String index(Model model){ // 메소드
 
@@ -26,7 +30,14 @@ public class IndexController {
         // html에 데이터 전송 => model.addAttribute( "모델명" , 데이터 ) ;
         model.addAttribute( "memberDtoList" , memberDtoList);
 
+        // 카드 목록 서비스
+        List<CardDto> cardDtoList = cardService.cardDtolist();
+
+        // html에 데이터 전송 => model.addAttribute( "모델명" , 데이터 ) ;
+        model.addAttribute( "cardDtoList" , cardDtoList);
+
         return "index"; //  문자열 반환
             // 타임리프가 html 를 찾는위치 : resources -> templates
     }
+
 }

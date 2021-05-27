@@ -17,8 +17,8 @@ public class MemberService {
     // 해당 엔티티를 연결 해줄 repository
     private final MemberRepository memberRepository ; // member 엔티티 연결 객체
         // final : 상수 : 고정값 => 정의
-    // 회원 저장
 
+    // 회원 저장
     @Transactional // javax
     public Long membersave( MemberDto memberDto ){
 

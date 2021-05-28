@@ -57,8 +57,11 @@ public class Cardcontroller {
 
         cardService.cardsave(cardDto);
 
-        return "index";
+        return "admincardlist";
 
     }
+
+    // 카드 삭제
+
 
 }

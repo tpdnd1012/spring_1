@@ -99,6 +99,9 @@ public class PostController {
         String keyword = request.getParameter("keyword");
         String search = request.getParameter("search");
 
+        // 검색이 없으면
+        if(search.equals("")) return "redirect:/postlist";
+
 //        System.out.println(keyword); request 확인
 //        System.out.println(search);
 

@@ -34,4 +34,9 @@ dependencies {
     compile('com.h2database:h2')
     // 롬복 : 생성자 , get , set , 필드 등
     compile('org.projectlombok:lombok')
+    // Devtools : 자동빌더
+    compile('org.springframework.boot:spring-boot-devtools')
+    // 설정 : 파일 => 설정 => 빌드 => 컴파일러 => 프로젝트 자동 빌드 체크
+    // 레지스트리 변경 : Ctrl + Alt + Shift + / compiler.automake.allow.when.app.running 체크
+    // 프로퍼티스 설정
 }

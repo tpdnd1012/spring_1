@@ -8,6 +8,7 @@ import spring.web.dto.CardDto;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -49,5 +50,17 @@ public class CardService {
     // 카드 수정
     
     // 카드 삭제
+    public void carddelete(Long id) {
+
+        // 1. 엔티티 찾기
+        Optional<CardEntity> optionalCardEntity = cardRepository.findById(id);
+
+        // 2. 엔티티 가져오기
+        CardEntity cardEntity = optionalCardEntity.get();
+
+        // 3. 삭제처리
+        cardRepository.delete(cardEntity);
+
+    }
 
 }

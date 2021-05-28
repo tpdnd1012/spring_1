@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header :: header_h">
+
+</head>
+<body>
+
+    <div th:replace="/header :: header"></div>
+
+    <div class="container">
+        <form method="post" action="/postwrite">
+
+            <div class="form-group">
+                <label>제목</label>
+                <input type="text" name="title" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>내용</label>
+                <textarea name="contents" class="form-control"></textarea>
+            </div>
+
+            <input type="hidden" th:value="${session.loginuser.memberid}" name="name">
+            <input type="submit" value="등록" class="btn btn-info">
+
+        </form>
+    </div>
+
+</body>
+</html>

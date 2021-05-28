@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="/header :: header_h">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div th:replace="/header :: header"></div>
+
+    <div class="container">
+
+        <table class="table table-striped" style="text-align:center; border:solid gray 1px">
+
+            <tr>
+                <td> 제목 </td>
+                <td  colspan="2"  th:text="${postDto.title}"> ></td>
+            </tr>
+            <tr>
+                <td> 조회수 </td>
+                <td colspan="2" th:text="${postDto.count}">  </td>
+            </tr>
+                <td> 작성자 </td>
+                <td   colspan="2" th:text="${postDto.name}"></td>
+            <tr>
+                <td> 작성일 </td>
+                <td   colspan="2" th:text="${postDto.createDate}"></td>
+            </tr>
+            <tr>
+                <td> 내용 </td>
+                <td   colspan="2" th:text="${postDto.contents}"></td>
+            </tr>
+        </table>
+        <a class="btn btn-info" th:href="@{/postlist}">목록</a>
+        <div th:if="${session.loginuser !=null }">
+            <a th:if="${session.loginuser.memberid == postDto.name }" class="btn btn-info" th:href="@{'/postupdate/'+${postDto.id}}">수정</a>
+            <a th:if="${session.loginuser.memberid == postDto.name }" class="btn btn-info" th:href="@{'/postdelete/'+${postDto.id}}">삭제</a>
+        </div>
+    </div>
+</body>
+</html>

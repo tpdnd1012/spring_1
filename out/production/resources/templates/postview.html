@@ -3,9 +3,6 @@
 
 <head th:replace="/header :: header_h">
 
-    <meta charset="UTF-8">
-    <title>Title</title>
-
 </head>
 <body>
 
@@ -36,8 +33,8 @@
         </table>
         <a class="btn btn-info" th:href="@{/postlist}">목록</a>
         <div th:if="${session.loginuser !=null }">
-            <a th:if="${session.loginuser.memberid == postDto.name }" class="btn btn-info" th:href="@{'/postupdate/'+${postDto.id}}">수정</a>
-            <a th:if="${session.loginuser.memberid == postDto.name }" class="btn btn-info" th:href="@{'/postdelete/'+${postDto.id}}">삭제</a>
+            <a th:if="${session.loginuser.name == postDto.name }" class="btn btn-info" th:href="@{'/postupdate/'+${postDto.id}}">수정</a>
+            <a th:if="${session.loginuser.name == postDto.name }" class="btn btn-info" th:href="@{'/postdelete/'+${postDto.id}}">삭제</a>
         </div>
     </div>
 </body>

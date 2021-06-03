@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/header :: header_h">
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+
 </head>
 <body>
 
-<div th:replace="/header :: header"></div>
+    <div th:replace="/header :: header"></div>
 
-<div class="container">
-    1. 메인 페이지 <br><br><br><br>
-    2. 현재 회원목록
+    <div class="container">
+        메인 페이지
+        현재 회원목록
+        <table>
+                <tr th:each="memberdto : ${memberDtoList}">
+                    <td th:text="${memberdto.name}"> </td>
+                </tr>
+        </table>
 
-    <table>
-        <tr th:each="memberdto : ${memberDtoList}">
-            <td th:text="${memberdto.name}"> </td>
-        </tr>
-    </table>
-
-    <table>
-        <tr th:each="cardDto : ${cardDtoList}">
-                <!-- th:each = 임시 변수명선언 : ${리스트명[모델명]}-->
-            <td th:text="${cardDto.id}"> </td>
-            <td th:text="${cardDto.cardname}"> </td>
-            <td th:text="${cardDto.cardcompany}"> </td>
-            <td><img th:src="@{../static/images/} + ${cardDto.cardpicture}"></td>
-            <td th:text="${cardDto.cardcount}"> </td>
-        </tr>
-    </table>
-
-</div>
-
+        <table>
+            <tr th:each="cardDto : ${cardDtoList}">
+                    <!-- th:each = 임시 변수명선언 : ${ 리스트명[모델명] } -->
+                    <!-- for( int temp : 리스트명 ) -->
+                <td th:text="${cardDto.id}"> </td>
+                <td th:text="${cardDto.cardname}"> </td>
+                <td th:text="${cardDto.cardcompany}"> </td>
+                <td> <img th:src="@{../static/images/}+${cardDto.cardpicture}">  </td>
+                <td th:text="${cardDto.cardcount}"> </td>
+            </tr>
+        </table>
+    </div>
 </body>
 </html>

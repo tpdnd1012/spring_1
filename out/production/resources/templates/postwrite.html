@@ -9,7 +9,6 @@
 
     <div class="container">
         <form method="post" action="/postwrite">
-
             <div class="form-group">
                 <label>제목</label>
                 <input type="text" name="title" class="form-control">
@@ -20,7 +19,8 @@
                 <textarea name="contents" class="form-control"></textarea>
             </div>
 
-            <input type="hidden" th:value="${session.loginuser.memberid}" name="name">
+            <input type="hidden" th:value="${session.loginuser.name}" name="name">
+
             <input type="submit" value="등록" class="btn btn-info">
 
         </form>

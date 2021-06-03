@@ -1,8 +1,8 @@
 package spring.domain.member;
 
 // DB 테이블 설계하기
-    // 1. JPA : 관계형 데이터베이스 JAVA API
-        // 1. Entity : db 테이블
+// 1. JPA : 관계형 데이터베이스 JAVA API
+// 1. Entity : db 테이블
 
 import lombok.Builder;
 import lombok.Getter;
@@ -33,20 +33,36 @@ public class MemberEntity extends BasTime {
     @Column // 필드
     private String email;
 
+    @Column
+    @Enumerated(EnumType.STRING)
+    Role role;
 
-    @Builder // 1. 인수 순서 구분x 2. 인수 null 제어   [ 객체 생성하는데 안전성 보장 ]
-    public MemberEntity(Long id, String memberid, String password, String name, String email) {
+    @Builder
+    public MemberEntity(Long id, String memberid, String password, String name, String email, Role role) {
         this.id = id;
         this.memberid = memberid;
         this.password = password;
         this.name = name;
         this.email = email;
+        this.role = role;
     }
-    // 업데이트 메소드
+
+    // 회원 업데이트 메소드
     public void update(MemberDto updateDto){
         // 인수값을 현재 필드에 넣기
         this.name = updateDto.getName();
         this.email = updateDto.getEmail();
+    }
+
+    // Role 키 반환
+    public String getkey(){
+        return this.role.getKey();
+    }
+
+    // oauth2 이메일 업데이트
+    public MemberEntity oauthupdate( String email ){
+        this.email = email;
+        return this;
     }
 
 }

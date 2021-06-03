@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/header :: header_h">
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+
 </head>
 <body>
 
@@ -10,34 +10,31 @@
 
 <div class="container">
 
-  <div class="col-md-4 float-left">
+    <div class="col-md-3 float-left">
+        <div th:replace="/adminmenu :: adminmenu "></div>
+    </div>
 
-    <div th:replace="/adminmenu :: adminmenu"></div>
-
-  </div>
-
-  <div class="col-md-9 float-left">
-    <div>카드목록</div>
-    <table class="table table-hover table-striped">
-      <tr class="thead-strong">
-        <th> 이미지 </th>
-        <th> 번호 </th>
-        <th> 카드이름 </th>
-        <th> 카드사 </th>
-        <th> 조회수 </th>
-        <th> 비고 </th>
-      </tr>
-      <tr th:each ="cardDto : ${cardDtos}">
-        <td><img th:src="@{../static/images/} + ${cardDto.cardpicture}" width="50px;"></td>
-        <td th:text="${cardDto.id}"></td>
-        <td th:text="${cardDto.cardname}"></td>
-        <td th:text="${cardDto.cardcompany}"></td>
-        <td th:text="${cardDto.cardcount}"></td>
-        <td><a>수정</a><a>삭제</a></td>
-      </tr>
-    </table>
-
-  </div>
-
+    <div class="col-md-9 float-left">
+        <div> 카드 목록 </div>
+        <table class="table table-hover table-striped">
+            <tr clss="thead-strong">
+                <th> 이미지 </th>
+                <th> 번호 </th>
+                <th> 카드이름 </th>
+                <th> 카드사</th>
+                <th> 조회수 </th>
+                <th> 비고 </th>
+            </tr>
+            <tr th:each ="cardDto : ${cardDtos}" >
+                <td> <img th:src="@{../static/images/}+${cardDto.cardpicture}" width="50px;">  </td>
+                <td th:text="${cardDto.id}"></td>
+                <td th:text="${cardDto.cardname}"></td>
+                <td th:text="${cardDto.cardcompany}"></td>
+                <td th:text="${cardDto.cardcount}"></td>
+                <td> <a>수정</a> / <a>삭제</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

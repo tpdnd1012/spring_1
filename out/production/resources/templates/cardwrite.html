@@ -1,34 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/header :: header_h">
-    <meta charset="UTF-8">
-    <title>Title</title>
+
 </head>
 <body>
 
-<div th:replace="/header :: header"></div>
+        <div th:replace="/header :: header"></div>
 
-<div class="container">
+        <div class="container">
 
-    <div class="col-md-4 float-left">
+            <div class="col-md-3 float-left">
+                <div th:replace="/adminmenu :: adminmenu "></div>
+            </div>
 
-        <div th:replace="/adminmenu :: adminmenu"></div>
+            <div class="col-md-9 float-left">
+                카드 등록 페이지
+                <form action="/cardwrite" method="post" enctype="multipart/form-data">
+                    카드명 <input type="text" name="cardname">
+                    카드사 <input type="text" name="cardcompany">
+                    링크 <input type="text" name="cardlink">
+                    사진 <input type="file" name="cardpicture">
+                    <input type="submit" value="등록">
+                </form>
+            </div>
+        </div>
 
-    </div>
-
-    <div class="col-md-8 float-left">
-
-        카드 등록 페이지
-        <form method="post" action="cardwrite" enctype="multipart/form-data">
-            카드명 : <input type="text" name="cardname">
-            카드사 : <input type="text" name="cardcompany">
-            링크 : <input type="text" name="cardlink">
-            사진 : <input type="file" name="cardpicture">
-            <input type="submit" value="등록">
-        </form>
-
-    </div>
 
 </body>
 </html>

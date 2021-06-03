@@ -23,6 +23,7 @@ public class AttributeDto {
         this.name = name;
         this.email = email;
     }
+
     // sns 구분 메소드
     public static AttributeDto of(String registrationId , String userNameAttributeName , Map<String , Object> attribute ){
 
@@ -35,6 +36,7 @@ public class AttributeDto {
             return ofGoogle( userNameAttributeName , attribute );
         }
     }
+
     // 구글 회원 가져오기 메소드
     public static AttributeDto ofGoogle(String userNameAttributeName , Map<String , Object> attribute ){
 
@@ -44,6 +46,7 @@ public class AttributeDto {
                 .attribute( attribute )
                 .nameAttributekey( userNameAttributeName ).build();
     }
+
     // 카카오 회원 가져오기 메소드
     public static AttributeDto ofKakao(String userNameAttributeName , Map<String , Object> attribute ){
 
@@ -56,6 +59,7 @@ public class AttributeDto {
                 .attribute( attribute )
                 .nameAttributekey( userNameAttributeName ).build();
     }
+
     // 네이버 회원 가져오기 메소드
     public static AttributeDto ofNaver(String userNameAttributeName , Map<String , Object> attribute ){
         // 네이버의 attribute 이름 : reponse
@@ -76,4 +80,5 @@ public class AttributeDto {
                 .role(Role.MEMBER)
                 .build();
     }
+
 }

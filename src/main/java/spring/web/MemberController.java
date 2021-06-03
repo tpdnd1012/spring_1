@@ -81,9 +81,9 @@ public class MemberController {
         // 세션 가져오기
         MemberDto memberDto =(MemberDto)session.getAttribute("loginuser");
         // 세션의 회원번호 가져오기
-        Long id = memberDto.getId();
+        String email = memberDto.getEmail();
         // 삭제 서비스 넘기기
-        memberService.memberdelete( id );
+        memberService.memberdelete( email );
         // 세션 초기화
         session.invalidate();
         return "redirect:/"; // 해당 url 이동
@@ -107,8 +107,8 @@ public class MemberController {
         // 세션 가져오기
         MemberDto memberDto =(MemberDto)session.getAttribute("loginuser");
         // 세션의 회원번호 가져오기
-        Long id = memberDto.getId();
-        memberService.memberupdate( id , updateDto );
+        String email = memberDto.getEmail();
+        memberService.memberupdate( email , updateDto );
         return "redirect:/memberinfo"; // URL 이동
     }
 

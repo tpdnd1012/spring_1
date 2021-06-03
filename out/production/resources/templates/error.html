@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header :: header_h">
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div th:replace="/header :: header"></div>
+
+<div class="container">
+  <div class="col-md-5 float-left"> <img width="95%" src="../static/images/error.jpg"></div>
+  <div class="col-md-5 float-left">
+    <h1>Error Page...</h1>
+    <h3>요청할수 없는 페이지입니다.</h3>
+    <div>이용에 불편을 드려 죄송합니다.</div>
+    <div>찾으시는 페이지는 접근할수 없는 페이지 입니다.</div>
+
+    <div><a class="btn btn-info" th:href="@{/}">Home</a></div>
+
+  </div>
+</div>
+
+</body>
+</html>

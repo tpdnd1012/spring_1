@@ -18,6 +18,7 @@ public class MemberDto {
     private String name;
     private String email;
     private Role role;
+
     // 생성자
     @Builder  // 롬복 어노테이션
     public MemberDto(Long id, String memberid, String password, String name, String email) {
@@ -46,4 +47,5 @@ public class MemberDto {
                 .email(email)
                 .role(Role.MEMBER).build();
     }
+
 }

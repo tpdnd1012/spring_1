@@ -88,32 +88,34 @@ public class MemberService {
                 .memberid( memberEntity.getMemberid() )
                 .name( memberEntity.getName())
                 .email( memberEntity.getEmail() ).build();
-        return  memberDto;
 
+        return  memberDto;
     }
 
     // 회원 탈퇴
     @Transactional // javax
-    public int memberdelete( Long id ){
+    public int memberdelete( String email ){
 
-         Optional<MemberEntity> optionalMemberEntity = memberRepository.findById(id);
+         Optional<MemberEntity> optionalMemberEntity = memberRepository.findByemail(email);
 
          MemberEntity memberEntity = optionalMemberEntity.get();
 
          memberRepository.delete( memberEntity ); // 삭제 쿼리
+
         return  1;
     }
 
     // 회원 수정 처리
     @Transactional // javax
-    public int memberupdate( Long id , MemberDto updateDto ){
+    public int memberupdate( String email , MemberDto updateDto ){
 
         // 1. db에서 회원찾기
-        Optional<MemberEntity> optionalMemberEntity = memberRepository.findById(id);
+        Optional<MemberEntity> optionalMemberEntity = memberRepository.findByemail(email);
         // 2. 찾았으면 엔티티 가져오기
         MemberEntity memberEntity = optionalMemberEntity.get();
         // 3. 업데이트 처리 => 메소드 호출
         memberEntity.update( updateDto );
+
         return  1;
     }
 
